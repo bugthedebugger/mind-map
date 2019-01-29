@@ -1,0 +1,249 @@
+*{
+    
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+.main{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-wrap: wrap;
+}
+header{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width:40%;
+    height: 100%;
+    background:#eee;
+    margin:0 auto; 
+}
+.title{
+    margin:0 auto;
+    font-family: 'Exo', sans-serif;
+    font-size:42px;
+    color:#2C4064;
+    text-decoration: none;
+    font-weight:bold;
+    overflow:hidden;
+}
+
+
+.logo{
+    /* height:10%; */
+    width: 280px;
+    height: auto;  
+    margin: 0 auto;
+}
+
+
+section{
+    width:60%;
+    height:auto;
+    background:#F1C2D6;
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    
+
+   
+    
+}
+.section0{
+   width:100%;
+   /* height:25%; */
+   
+   
+   
+}
+nav ul{
+        float:center;
+
+
+}
+nav ul li{
+   display:flex;
+   flex-direction: column;
+   padding-top:15px;
+   margin-right: 15px;
+   justify-content: center;
+   align-items: center;
+   
+
+
+    
+   
+}
+nav ul li a{
+    padding:6px;
+    color:white;
+    text-decoration: none;
+    font-family: 'Flamenco', cursive;
+    text-transform: uppercase;
+    font-weight: 100px;
+    transition: background-color 0.2s,border 0.2s, color 0.2s;
+}
+nav ul li a:hover{
+    background:#F285B4;
+    border-radius: 50%;
+    border-bottom:1px solid white;
+    cursor: pointer;
+  }
+.section1{
+    width:100%;
+    height: 80%;
+    
+
+}
+.center{
+    margin:100px 30px;
+    width:80%;
+    height: 60%;
+    
+
+    
+}
+.center p{
+    font-size:22px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.btn{
+    background: #F285B4;
+    display:inline-block;
+	padding:10px 30px;
+	font-weight: lighter;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 200px;
+    margin:10px 20px;
+	transition: background-color 0.2s,border 0.2s, color 0.2s;
+}
+.btn:hover{
+	background-color: white;
+}
+.section3{
+    margin:120px 30px;
+}
+
+@media screen and (min-width: 640px){
+    nav ul{
+        float:right;
+    }
+    nav ul li{
+        
+      display:inline-block;
+      margin-top:15px;
+      margin-right:25px;
+
+
+        
+    }
+    nav ul li a{
+        padding:25px;
+        font-size:25px;
+    }
+    header{
+        width:25%;
+    }
+    section{
+        width:75%;
+
+    }
+    .center{
+        margin:160px 40px 0;
+    }
+    .section3{
+        margin-top:35%;
+        flex-direction: row;
+        width:50%;
+        margin-left:25%;
+
+    }
+    
+    
+    
+
+}
+@media screen and (min-width: 569px){
+    nav ul{
+        float:right;
+    }
+    nav ul li{
+        
+      display:inline-block;
+      margin-top:10px;
+      margin-right:15px;
+    
+    }
+    nav ul li a{
+        padding:15px;
+        font-size:25px;
+    }
+  
+    header{
+        width:25%;
+    }
+    section{
+        width:75%;
+
+    }
+  .center{
+        margin:200px 0 0 150px;
+        width:50%;
+    }
+    .section3{
+    margin:200px -0 0 150px;
+    }
+}
+@media screen and (min-width:925px){
+    nav ul li a{
+        font-size:32px;
+    }
+    .center{
+        margin:230px 0 0 250px;
+        width:50%;
+    }
+    .section3{
+        margin:200px 0 0 350px;
+      
+    }
+   
+    
+} 
+.section1 form{
+
+}
+form input{
+    padding:10px;
+    border-radius:50px;
+    margin:10px 0;
+    background: transparent white;
+    font-size: 15px;
+
+}
+form input::placeholder{
+  color: brown;
+}
+form label{
+    font-family: 'Exo 2', sans-serif;
+}
+#btn{
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+form a{
+    text-decoration: none;
+    color:black;
+    font-family: 'Exo 2', sans-serif;
+    
+}
+form a:hover{
+    color:blue;
+}
+.mainbtn{
+    width:200px;
+
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mind Map | App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{{url_for('static', filename='js//p5.min.js')}}"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #nodeLabel{
+            position: fixed;
+            margin-top: 46.4%;
+            margin-left: 42%;
+            padding: 3px;
+        }
+        #downloadLink{
+            position: fixed;
+            margin-top: 46.35%;
+            margin-left: 56%;
+        }
+        #importedFile{
+            position: fixed;
+            margin-top: 46.35%;
+            margin-left: 62.12%;
+            padding: 3px;
+        }
+        #importButton{
+            position: fixed;
+            margin-top: 46.35%;
+            margin-left: 75.5%;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <form id="labelForm" onsubmit="return false">
+        <input type="text" id="nodeLabel" name="nodeLabel" placeholder="Node Name">
+        <input type="file" id="importedFile" name="importFile" placeholder="Import Map">
+        <button id="importButton" onclick="importBtn()">Import Map</button>
+    </form>
+    <a download="maps.json" id="downloadLink" onclick="downloadMap()">
+        <button style="padding: 4px">Export Map</button>
+    </a>
+
+    <script src="{{url_for('static', filename='js//nodesController.js')}}"></script>
+    <script src="{{url_for('static', filename='js//nodes.js')}}"></script>
+    <script src="{{url_for('static', filename='js//edge.js')}}"></script>
+    <script>
+
+        let nodeController;
+        let nodes = [];
+        let label;
+        let form = document.getElementById("labelForm");
+        let labelFocus = form.nodeLabel;
+        let exportBtn = document.getElementById("downloadLink");
+        let importedMap;
+        function setup(){
+            createCanvas(windowWidth, windowHeight-40);
+            background("#74b9ff");
+            nodeController = new NodesController(nodes);
+        }
+        function draw(){
+            label = labelFocus.value;
+            nodeController.show();
+        }
+        function doubleClicked(){
+            if( mouseX >=0 && mouseX <= windowWidth && mouseY >= 0 && mouseY <= windowHeight-40 )
+                nodeController.mouseDoubleClicked();
+        }
+        function mouseClicked(){
+            if( mouseX >=0 && mouseX <= windowWidth && mouseY >= 0 && mouseY <= windowHeight-40 )
+                nodeController.mouseClicked(label, labelFocus);
+        }
+        function downloadMap(){
+            // console.log("clicked");
+            exportBtn.href = nodeController.getMindMap();
+        }
+        (function(){
+            function onChange(event) {
+                var reader = new FileReader();
+                reader.onload = onReaderLoad;
+                reader.readAsText(event.target.files[0]);
+            }
+
+            function onReaderLoad(event){
+                // console.log(event.target.result);
+                var obj = JSON.parse(event.target.result);
+                importedMap = obj;
+            }
+        
+            document.getElementById('importedFile').addEventListener('change', onChange);
+        }());
+        function importBtn(){
+            console.log(importedMap);
+            nodeController.importMap(importedMap);
+        }
+    </script>
+</body>
+</html>

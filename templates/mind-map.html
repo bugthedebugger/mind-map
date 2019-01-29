@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+    <TITLE>Choose</TITLE>
+    <link rel="stylesheet" href="{{url_for('static', filename='css//home.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    google font-->
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet"> 
+</HEAD>
+<body>
+    <div class="main">
+        <header>
+            <a href="{{url_for('index')}}" class="title">MiND MAPS</a>
+            <img src="{{url_for('static', filename='img//Logo.png')}}" alt="Mind map logo" class="logo">
+
+        </header>
+        <section>
+            <div class="section0">
+                <nav>
+                   <ul>
+                      <li><a href="{{url_for('index')}}">Home</a></li>
+                      <li><a href="{{url_for('about')}}">About</a></li>
+                      <li><a href="{{url_for('developers')}}">Creators</a></li>
+                      {% if 'username' in session %}
+                        <li><a href="{{url_for('logout')}}">Logout</a></li>
+                      {% endif %}
+                   </ul>
+
+                </nav>
+            </div>
+            <div class="section3">
+                <center>
+                    <a href="{{url_for('mind_map_app')}}"><input type="submit" value="Map a new mind" class="btn mainbtn"></a>   
+                </center>
+            </div>
+        </section>
+    </div>
+
+</body>
+</HTML>

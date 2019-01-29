@@ -1,0 +1,81 @@
+
+<HTML>
+<HEAD>
+    <TITLE>Home</TITLE>
+    <link rel="stylesheet" href="{{url_for('static', filename='css//home.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    google font-->
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet"> 
+</HEAD>
+<body>
+    <div class="main">
+        <header>
+            <a href="{{url_for('index')}}" class="title">MiND MAPS</a>
+            <img src="{{url_for('static', filename='img//Logo.png')}}" alt="Mind map logo" class="logo">
+
+        </header>
+        <section>
+            <div class="section0">
+                <nav>
+                   <ul>
+                      <li><a href="{{url_for('index')}}">Home</a></li>
+                      <li><a href="{{url_for('about')}}">About</a></li>
+                      <li><a href="{{url_for('developers')}}">Creators</a></li>
+                      {% if 'username' in session %}
+                        <li><a href="{{url_for('logout')}}">Logout</a></li>
+                      {% endif %}
+                   </ul>
+
+                </nav>
+            </div>
+            <div class="section3">
+                <form action="{{ url_for('register_handler') }}" method="POST">
+                    <table>
+                        <tr>
+                            <td><label for="name">Username</label></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="username" placeholder="John Doe" id="username" required></td>
+                            
+                        </tr>
+                        <tr>
+                        	<td><label for="Email">Email</label></td>
+
+                        </tr>
+                        <tr>
+                        	<td><input type="Email" name="email" placeholder="Email" id="email" required></td>
+                        	
+                        </tr>
+                        <tr>
+                            <td><label for="password">Password</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="Password" name="password" placeholder="password" id="password" required></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <!-- <form method="get" action="login.html">
+                            	<td><input type="submit" class="login btn" id="btn" value="Register"></td>
+                        	</form> -->
+                        	<td><input type="submit" class="login btn" id="btn" value="Register"></td>
+                        </tr>
+                        <tr>
+                            <td><a href="login.html" class="link">Already have an account?Login!</a></td>
+                            
+                        </tr>
+                       
+                    </table>
+                </form>
+                
+                
+                
+            </div>
+        </section>
+    </div>
+
+</body>
+</HTML>
