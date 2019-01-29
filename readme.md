@@ -19,6 +19,6 @@ pip3 install flask
 - Import mind map file
 - Export mind map file
 
-## DEMO
+## Demo
 - https://www.youtube.com/watch?v=P5agEdMoxvM&t=9s
 - https://www.youtube.com/watch?v=8GFzHo7eyUk
